@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import StarRating from "./Star";
 
 const average = (arr) =>
@@ -255,6 +255,15 @@ function MovieDetails({ selectedId, handleCloseMovie, onAddWatched, watched }) {
   const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState(null);
 
+  const countReff = useRef(0);
+
+  useEffect(
+    function () {
+      if (userRating) countReff.current++;
+    },
+    [userRating]
+  );
+
   const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
 
   const watchedUserRating = watched.find(
@@ -283,6 +292,7 @@ function MovieDetails({ selectedId, handleCloseMovie, onAddWatched, watched }) {
       imdbRating: Number(imdbRating),
       runtime: Number(runtime.split(" ").at(0)),
       userRating,
+      countRadintgDiss: countReff.current,
     };
     onAddWatched(newWatchedMovie);
     handleCloseMovie();

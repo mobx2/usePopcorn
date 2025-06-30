@@ -164,6 +164,22 @@ function Logo() {
 }
 
 function Search({ query, setQuery }) {
+  const searchBar = useRef(null);
+
+  useEffect(function () {
+    function callBack(e) {
+      if (e.code === "Enter") {
+        searchBar.current.focus();
+      }
+    }
+
+    document.addEventListener("keydown", callBack);
+
+    return () => {
+      document.removeEventListener("keydown", callBack);
+    };
+  }, []);
+
   return (
     <input
       className="search"
@@ -171,6 +187,7 @@ function Search({ query, setQuery }) {
       placeholder="Search movies..."
       value={query}
       onChange={(e) => setQuery(e.target.value)}
+      ref={searchBar}
     />
   );
 }

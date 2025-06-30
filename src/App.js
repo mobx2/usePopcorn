@@ -166,19 +166,28 @@ function Logo() {
 function Search({ query, setQuery }) {
   const searchBar = useRef(null);
 
-  useEffect(function () {
-    function callBack(e) {
-      if (e.code === "Enter") {
-        searchBar.current.focus();
+  useEffect(
+    function () {
+      function callBack(e) {
+        if (document.activeElement === searchBar.current) {
+          return;
+        }
+
+        if (e.code === "Enter") {
+          searchBar.current.focus();
+
+          setQuery("");
+        }
       }
-    }
 
-    document.addEventListener("keydown", callBack);
+      document.addEventListener("keydown", callBack);
 
-    return () => {
-      document.removeEventListener("keydown", callBack);
-    };
-  }, []);
+      return () => {
+        document.removeEventListener("keydown", callBack);
+      };
+    },
+    [setQuery]
+  );
 
   return (
     <input

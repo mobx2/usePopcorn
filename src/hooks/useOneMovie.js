@@ -11,7 +11,7 @@ export function useOneMovie(selectedId, KEY) {
       setIsLoading(true);
       try {
         const movieResponse = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`,
+          `https://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`,
           { signal: controler.signal }
         );
 

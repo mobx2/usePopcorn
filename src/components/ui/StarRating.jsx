@@ -29,13 +29,13 @@ export default function StarRating({
     fontSize: `${size / 1.5}px`,
   };
 
-  StarRating.prototype = {
-    maxRating: PropTypes.number.isRequired,
+  StarRating.propTypes = {
+    maxRating: PropTypes.number,
     rating: PropTypes.number,
     color: PropTypes.string,
     size: PropTypes.number,
     messages: PropTypes.array,
-    setRating: PropTypes.func,
+    setUserRating: PropTypes.func,
   };
 
   return (

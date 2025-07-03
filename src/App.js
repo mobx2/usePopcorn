@@ -1,3 +1,32 @@
+// src/
+// ├── App.js
+// ├── index.js
+// ├── hooks/
+// │   ├── useMovies.js
+// │   ├── useOneMovie.js
+// │   ├── useWatched.js
+// │   └── useLocalStorage.js
+// ├── components/
+// │   ├── NavBar/
+// │   │   ├── NavBar.jsx
+// │   │   ├── Search.jsx
+// │   │   └── NumbResults.jsx
+// │   ├── Layout/
+// │   │   ├── Box.jsx
+// │   │   ├── Main.jsx
+// │   │   └── Logo.jsx
+// │   ├── movies/
+// │   │   ├── Movie.jsx
+// │   │   └── MovieList.jsx
+// │   ├── watched/
+// │   │   ├── WatchedMovie.jsx
+// │   │   ├── WatchedList.jsx
+// │   │   ├── WatchedSummary.jsx
+// │   ├── MovieDetails.jsx
+// │   └── ui/
+// │       ├── Loader.jsx
+// │       └── ErrorMessage.jsx
+
 // ============================================
 // ========= React & Custom Hooks =============
 // ============================================
